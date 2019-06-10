@@ -21,7 +21,7 @@ public class HelloController {
     @GetMapping("/hello")
     public void hello() {
         try {
-            jobLauncher.run(job, null);
+            jobLauncher.run(job, new JobParametersBuilder().toJobParameters());
         } catch (Exception e) {
             e.printStackTrace();
         }
