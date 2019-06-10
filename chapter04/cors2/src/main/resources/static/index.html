@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.3.1.js"></script>
+</head>
+<body>
+<div id="contentDiv"></div>
+<div id="deleteResult"></div>
+<input type="button" value="提交数据" onclick="postData()"><br>
+<input type="button" value="删除数据" onclick="deleteData()"><br>
+<input type="button" value="获取数据" onclick="getData()"><br>
+<script>
+    function getData() {
+        $.ajax({
+            url:'http://localhost:8080/bs',
+            type:'get',
+            success:function (msg) {
+                $("#contentDiv").html(msg);
+            }
+        })
+    }
+    function deleteData() {
+        $.ajax({
+            url:'http://localhost:8080/book/99',
+            type:'delete',
+            success:function (msg) {
+                $("#deleteResult").html(msg);
+            }
+        })
+    }
+    function postData() {
+        $.ajax({
+            url:'http://localhost:8080/book',
+            type:'post',
+            data:{name:'三国演义'},
+            success:function (msg) {
+                $("#contentDiv").html(msg);
+            }
+        })
+    }
+</script>
+</body>
+</html>

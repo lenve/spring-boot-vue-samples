@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sang.mapper.BookMapper">
+    <insert id="addBook" parameterType="org.sang.model.Book">
+    INSERT INTO book(name,author) VALUES (#{name},#{author})
+    </insert>
+    <delete id="deleteBookById" parameterType="int">
+        DELETE FROM book WHERE id=#{id}
+    </delete>
+    <update id="updateBookById" parameterType="org.sang.model.Book">
+        UPDATE book set name=#{name},author=#{author} WHERE id=#{id}
+    </update>
+    <select id="getBookById" parameterType="int" resultType="org.sang.model.Book">
+        SELECT * FROM book WHERE id=#{id}
+    </select>
+    <select id="getAllBooks" resultType="org.sang.model.Book">
+        SELECT * FROM book
+    </select>
+</mapper>

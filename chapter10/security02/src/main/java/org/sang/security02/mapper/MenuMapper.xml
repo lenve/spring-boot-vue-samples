@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sang.security02.mapper.MenuMapper">
+    <resultMap id="BaseResultMap" type="org.sang.security02.model.Menu">
+        <id property="id" column="id"/>
+        <result property="pattern" column="pattern"/>
+        <collection property="roles" ofType="org.sang.security02.model.Role">
+            <id property="id" column="rid"/>
+            <result property="name" column="rname"/>
+            <result property="nameZh" column="rnameZh"/>
+        </collection>
+    </resultMap>
+    <select id="getAllMenus" resultMap="BaseResultMap">
+        SELECT m.*,r.id AS rid,r.name AS rname,r.nameZh AS rnameZh FROM menu m LEFT JOIN menu_role mr ON m.`id`=mr.`mid` LEFT JOIN role r ON mr.`rid`=r.`id`
+    </select>
+</mapper>

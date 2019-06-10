@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.3.1.js"></script>
+</head>
+<body>
+<input type="button" value="post" onclick="postClick()">
+<script>
+    function postClick() {
+        $.ajax({
+            url:'http://localhost:8080/healthcheck',
+            type:'get',
+            success:function (msg) {
+                alert(msg)
+            }
+        })
+    }
+</script>
+</body>
+</html>

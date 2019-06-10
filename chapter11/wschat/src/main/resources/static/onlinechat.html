@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单聊</title>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/chat.js"></script>
+</head>
+<body>
+<div id="chat">
+    <div id="chatsContent">
+    </div>
+    <div>
+        请输入聊天内容：
+        <input type="text" id="content" placeholder="聊天内容">
+        目标用户：
+        <input type="text" id="to" placeholder="目标用户">
+        <button id="send" type="button">发送</button>
+    </div>
+</div>
+</body>
+</html>
