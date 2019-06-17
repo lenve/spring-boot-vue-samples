@@ -16,7 +16,7 @@ public class MyFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        int i = 1 / 0;
+//        int i = 1 / 0;
         System.out.println("doFilter");
         chain.doFilter(request,response);
     }
