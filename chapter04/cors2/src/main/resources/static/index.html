@@ -6,37 +6,22 @@
     <script src="jquery3.3.1.js"></script>
 </head>
 <body>
-<div id="contentDiv"></div>
-<div id="deleteResult"></div>
-<input type="button" value="提交数据" onclick="postData()"><br>
-<input type="button" value="删除数据" onclick="deleteData()"><br>
-<input type="button" value="获取数据" onclick="getData()"><br>
+<div id="app"></div>
+<input type="button" value="GET" onclick="getData()">
+<input type="button" value="PUT" onclick="putData()">
 <script>
     function getData() {
-        $.ajax({
-            url:'http://localhost:8080/bs',
-            type:'get',
-            success:function (msg) {
-                $("#contentDiv").html(msg);
-            }
-        })
+        $.get('http://localhost:8080/hello', function (msg) {
+            $("#app").html(msg);
+        });
     }
-    function deleteData() {
+
+    function putData() {
         $.ajax({
-            url:'http://localhost:8080/book/99',
-            type:'delete',
-            success:function (msg) {
-                $("#deleteResult").html(msg);
-            }
-        })
-    }
-    function postData() {
-        $.ajax({
-            url:'http://localhost:8080/book',
-            type:'post',
-            data:{name:'三国演义'},
-            success:function (msg) {
-                $("#contentDiv").html(msg);
+            type: 'put',
+            url: 'http://localhost:8080/doput',
+            success: function (msg) {
+                $("#app").html(msg);
             }
         })
     }
